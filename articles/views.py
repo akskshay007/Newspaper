@@ -1,6 +1,7 @@
 from asyncio.format_helpers import _format_callback_source
+from urllib import request
 from django.shortcuts import render
-from .models import Article
+from .models import Article, Comment
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import UpdateView, DeleteView,CreateView, FormView
 from django.views.generic.detail import SingleObjectMixin
@@ -12,16 +13,6 @@ from django.views import View
 class ArticleListView(LoginRequiredMixin,ListView):
     model = Article
     template_name = 'article_list.html'
-
-# class ArticleDetailView(LoginRequiredMixin,DetailView):
-#     model = Article
-#     template_name = "article_detail.html"
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['form']=CommentForm()
-#         return context
-
 
 class ArticleUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
     model = Article
@@ -67,7 +58,7 @@ class CommentGet(DetailView):
         context['form']=CommentForm
         return context
 
-class CommentPost(SingleObjectMixin,FormView):
+class CommentPost(LoginRequiredMixin, SingleObjectMixin, FormView):
     model = Article
     form_class = CommentForm 
     template_name = 'article_detail.html'
@@ -77,6 +68,7 @@ class CommentPost(SingleObjectMixin,FormView):
         return super().post(request,*args,**kwargs)
 
     def form_valid(self,form):
+        form.instance.author=self.request.user
         comment=form.save(commit=False)
         comment.article = self.object
         comment.save()
@@ -96,3 +88,13 @@ class ArticleDetailView(LoginRequiredMixin, View):
         view = CommentPost.as_view()
         return view(request, *args, **kwargs)
 
+class CommentDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
+    model = Comment
+    template_name = "comment_delete.html"
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user 
+    
+    def get_success_url(self):
+        return reverse_lazy("article_detail", kwargs={"pk": self.kwargs["ppk"]})
