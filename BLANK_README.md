@@ -108,13 +108,16 @@ Set a virtual environment and install the below libraries mentioned in pre-requi
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+* crispy-bootstrap5==0.6
+* Django==4.0.6
+* django-crispy-forms==1.13.0
+* environs==9.3.5
+* gunicorn==20.1.0
+* pyparsing==3.0.9
+* python-dotenv==0.20.0
+* whitenoise==5.3.0
 
-### Installation
+<!-- ### Installation
 
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
@@ -130,22 +133,22 @@ This is an example of how to list things you need to use the software and how to
    const API_KEY = 'ENTER YOUR API';
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+<!-- ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+ -->
 
 
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+<!-- Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
@@ -156,9 +159,7 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 <!-- LICENSE -->
 <!-- ## License
@@ -167,8 +168,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
  -->
-
-
 <!-- CONTACT -->
 ## Contact
 
@@ -178,8 +177,6 @@ Project Link: [https://github.com/akskshay007/Newspaper](https://github.com/aksk
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- 
-
 <!-- ACKNOWLEDGMENTS -->
 <!-- ## Acknowledgments
 
@@ -187,7 +184,7 @@ Project Link: [https://github.com/akskshay007/Newspaper](https://github.com/aksk
 * []()
 * []()
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p> --> -->
+<p align="right">(<a href="#readme-top">back to top</a>)</p> --> 
 
 
 
